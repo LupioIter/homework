@@ -1,0 +1,54 @@
+.affairs {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+
+    font-family: "Comic Sans MS";
+}
+
+.button {
+    margin: 10px;
+    width: 60px;
+
+    background-color: rgb(242, 210, 226);
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+}
+
+.button:active {
+    background: rgb(213, 205, 208);
+}
+
+.active {
+    background: rgb(236, 122, 174);
+}
+
+.item {
+    margin: 10px;
+    width: 100px;
+}
+
+.affair {
+    display: flex;
+}
+
+.affairName {
+    margin: 10px;
+}
+
+.affairButton {
+    margin-top: 10px;
+    height: 20px;
+}
+
+.high {
+    color: #a12929;
+}
+
+.middle {
+    color: #e7a23d;
+}
+
+.low {
+    color: #7ebd58;
+}

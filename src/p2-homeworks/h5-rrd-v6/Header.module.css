@@ -1,0 +1,59 @@
+@-webkit-keyframes open {
+    0% { transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(100px);
+    }
+}
+
+.header_wrapper {
+    display: inline-block;
+    position: relative;
+    height: 30px;
+}
+
+.hover_div {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 7px;
+    right: 0px;
+    left: 10px;
+    background-color: #d580c8;
+    cursor: pointer;
+    transition: all 2s ease-in-out;
+
+}
+
+.header_wrapper:hover .hover_div {
+    right: 100px;
+}
+
+.link {
+    padding: 5px;
+    color: azure;
+    text-decoration: none;
+}
+
+.link:visited {
+    color: azure;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #d580c8;
+}
+
+.sidebar {
+    display: none;
+    min-width: max-content;
+    margin-top: 5px;
+    margin-left: 30px;
+    position: absolute;
+    z-index: 1;
+}
+
+.header_wrapper:hover .sidebar {
+    display: block;
+}
+

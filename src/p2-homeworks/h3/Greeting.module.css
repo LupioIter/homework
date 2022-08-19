@@ -1,0 +1,63 @@
+.greeting {
+    display: flex;
+    align-items: flex-start;
+}
+
+.error {
+    color: red;
+    font-family: "Comic Sans MS";
+    height: 21px;
+    margin-left: 10px;
+}
+
+.input {
+    margin: 10px;
+    height: 19px;
+
+    background: rgb(242, 210, 226);
+    color: black;
+    font-family: "Comic Sans MS";
+}
+
+.input:focus {
+    outline: none;
+    border: #a12929 solid 2px;
+}
+
+.errorInput {
+    margin: 10px;
+
+    background: rgb(242, 210, 226);
+    color: rgb(213, 120, 155);
+
+    border: 2px solid red;
+    outline: none;
+}
+
+.button {
+    margin: 10px;
+    width: 60px;
+
+    background: rgb(242, 210, 226);
+    color: black;
+    font-family: "Comic Sans MS";
+    outline: none;
+}
+
+.button:focus {
+    outline: #a12929 solid 1px;
+}
+
+.button:active {
+    background: rgb(213, 120, 155);
+}
+
+.button:disabled {
+    color: black;
+    font-family: "Comic Sans MS";
+}
+
+.count {
+    margin: 10px;
+    font-family: "Comic Sans MS";
+}
