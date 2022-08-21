@@ -29,23 +29,30 @@
 
 .link:hover {
     color: #d580c8;
+    text-shadow: #d580c8 0px 0px 10px;
 }
 
 .sidebar {
-    min-width: max-content;
+    white-space: nowrap;
+    width: 0;
     margin-top: 5px;
     margin-left: 30px;
     position: absolute;
     z-index: 1;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 2s, visibility 2s;
+    overflow: hidden;
+    transition: all 1s ease 0s;
 }
 
-.sidebar :hover {
+.header_wrapper:hover .sidebar  {
+    width: 300px;
+    white-space: nowrap;
     visibility: visible;
+    overflow: visible;
     opacity: 1;
-    animation: fade 1s infinite;
+    animation: fade 0,5s;
+    animation: open 1s;
 }
 
 @keyframes fade {
@@ -54,6 +61,15 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes open {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 300px;
     }
 }
 
