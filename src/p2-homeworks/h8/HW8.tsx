@@ -1,8 +1,14 @@
-import React, {useState} from 'react'
-import {homeWorkReducer} from './bll/homeWorkReducer'
+import React, {ChangeEvent, useState} from 'react'
+import {ageCheckAC, homeWorkReducer, sortNameAC} from './bll/homeWorkReducer'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
+import s from './HW8.module.css'
+import SuperRadio from "../h7/common/c6-SuperRadio/SuperRadio";
 
-// export type UserType =
+export type UserType = {
+    _id: number,
+    name: string,
+    age: number
+}
 
 const initialPeople = [
     {_id: 0, name: 'Кот', age: 3},
@@ -14,28 +20,51 @@ const initialPeople = [
 ]
 
 function HW8() {
-    const [people, setPeople] = useState<any>(initialPeople) // need to fix any
+    const [people, setPeople] = useState<Array<UserType>>(initialPeople) // need to fix any
+    const [nameSort, setNameSort] = useState<'up' | 'down'>('up')
+    const [checked, setChecked] = useState<boolean>(false)
 
     // need to fix any
-    const finalPeople = people.map((p: any) => (
-        <div key={p._id}>
-            some name, age
+    const finalPeople = people.map((p: UserType) => (
+        <div className={s.people} key={p._id}>
+            <div className={s.first_column}>{p.name}</div>
+            <div className={s.second_column}>{p.age}</div>
         </div>
     ))
 
-    const sortUp = () => setPeople(homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'}))
+    const sortUp = () => {
+        setPeople(homeWorkReducer(people, sortNameAC(nameSort)))
+        setNameSort( 'up' )
+    }
+    const sortDown = () => {
+        setPeople(homeWorkReducer(people, sortNameAC(nameSort)))
+        setNameSort( 'down' )
+    }
+    const check18 = (e: ChangeEvent<HTMLInputElement>) => {
+        if (!checked) setPeople(homeWorkReducer(people, {type: 'check', payload: 18}))
+        setChecked(e.currentTarget.checked)
+        if (checked) setPeople(initialPeople)
+    }
 
     return (
-        <div>
+        <div className={s.container_main}>
             <hr/>
-            homeworks 8
-
+            <h3 className={s.hw}>homeworks 8</h3>
             {/*should work (должно работать)*/}
-            {finalPeople}
+            <div className={s.container}>
 
-            <div><SuperButton onClick={sortUp}>sort up</SuperButton></div>
-            <div>sort down</div>
-            check 18
+                <div className={s.list}>
+                    {finalPeople}
+                </div>
+
+                <div className={s.buttons_div}>
+                    <div><SuperButton className={s.button} onClick={sortUp}>sort up</SuperButton></div>
+                    <div><SuperButton className={s.button} onClick={sortDown}>sort down</SuperButton></div>
+                    <div><input className={s.checkbox} checked={checked} type={"checkbox"} onChange={check18}/> check 18</div>
+                </div>
+            </div>
+
+            {/*<div><SuperButton onClick={check18}>check 18</SuperButton></div>*/}
 
             <hr/>
             {/*для личного творчества, могу проверить*/}
