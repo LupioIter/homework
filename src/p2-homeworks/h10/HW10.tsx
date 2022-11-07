@@ -17,14 +17,16 @@ function HW10() {
     };
 
     return (
-        <div>
+        <div className={"container"}>
             <hr/>
             homeworks 10
 
             {/*should work (должно работать)*/}
             {isLoading
                 ? (
-                    <div>крутилка...</div>
+                    <div className="lds-heart">
+                        <div>loading...</div>
+                    </div>
                 ) : (
                     <div>
                         <SuperButton onClick={setLoading}>set loading...</SuperButton>
